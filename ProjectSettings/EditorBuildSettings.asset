@@ -1,0 +1,14 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Super Passthrough.unity
+    guid: e41b55d82aa9bed4faa2b673c8e95356
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 07fdf8136d6e6f441933bff3d4a86194, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c58461536a073564bab3ef4392a4aa4b, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 222511fc5eb18654ba6984e7703aa1b0, type: 2}
