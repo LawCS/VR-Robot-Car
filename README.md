@@ -1,47 +1,54 @@
-# VR-Robot-Car
-Controlling a robot car using VR Headset controllers
-## Description
-An in-depth paragraph about your project and overview of use.
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+# VR Car Controller
 
-### Installing
+****if you need help, dont hesitate to mail me: khourylawrence@gmail.com****
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
 
-### Executing program
+## Overview
+*VR Car Controller* is a project that enables users to control a robotic car using the controllers of a Meta Quest 2 VR headset. The system is built in Unity, where all vector calculations take place, and it communicates with the car's server via HTTP. The server and Unity interact using Flask.
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+## Features
+- Control a robotic car using VR controllers.
+- Built with *Unity* and *C#* for VR interactions.
+- Uses *Flask* to facilitate communication between Unity and the robotic car.
+- Supports four simple commands: Forward, Left, Right, and Stop.
+- Real-time command sending at *30 FPS*.
+- Meta Quest 2 integration for an immersive experience.
 
-## Help
+## Installation & Setup
+### 1. Unity Installation
+- Download and install *Unity Hub* from [Unity's official website](https://unity.com/).
+- Install a Unity version that supports Meta Quest 2 (recommended: *Unity 2021.3 LTS or later*). - ** we had 2022.3.32f1
+- Set up a *3D project* in Unity. ( i dont believe you need this once you "pull" this project from github. )
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+### 2. Meta Quest 2 Setup
+- Enable *Developer Mode* on your Meta Quest 2 headset.
+- Install the *Oculus Integration* package from the Unity Asset Store.
+- Ensure the headset is connected to your PC via *Oculus Link* or *Air Link*. ( cable link through USB 3 is preferred )
 
-## Authors
+### 3. Server Setup (Flask & HTTP Communication)
+- Install Python 3 (if not already installed) - we had 3.11.9 and it worked fine.
+- Install Flask:
+  bash
+  pip install flask
+  
+- Run the Flask server (sample script included in the repository).
 
-Contributors names and contact info
+## Algorithm Workflow
+1. The *CommandSender* script in Unity continuously sends commands at *30 FPS* when the VR controller's *primary button* is pressed.
+2. The default command sent is Forward as long as *-6° < angle < 6°*.
+3. If *angle > 6°*, the command changes to Right.
+4. If *angle < -6°*, the command changes to Left.
+5. The Unity script sends these commands to the *Flask server*, which relays them to the robotic car via HTTP.
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+## Technologies Used
+- *Unity* (for VR environment and scripting)
+- *C#* (for handling vector calculations and sending commands)
+- *Python (Flask)* (for handling server-side communication)
+- *HTTP requests* (to send commands to the robotic car)
 
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
+## Contribution
+Feel free to contribute to this project! To do so:
+1. Fork the repository.
+2. Create a new branch (feature-branch).
+3. Make your changes and commit them.
+4. Submit a pull request.
